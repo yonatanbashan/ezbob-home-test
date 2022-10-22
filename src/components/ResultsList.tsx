@@ -1,4 +1,5 @@
 import { SearchResult } from "../types";
+import "./ResultsList.scss";
 
 type ResultsListProps = {
   results: SearchResult[];
@@ -8,10 +9,10 @@ function ResultsList(props: ResultsListProps) {
   const { results } = props;
 
   return (
-    <div>
+    <div className="resultslist-container">
       {results.map((item, i) => {
         return (
-          <div key={`${item}_${i}`}>
+          <div className="resultslist-item" key={`${item}_${i}`}>
             <a className="resultslist-title" href={item.url}>
               {item.title}
             </a>

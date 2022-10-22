@@ -10,10 +10,15 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  user-select: none;
 }
 
 .completionslist-item-selected {
-  background-color: rgba(128, 134, 141, 0.3);
+  background-color: rgba(128, 134, 141, 0.16);
+}
+
+.completionslist-item-searched {
+  color: #9669be;
 }
 
 .completionslist-separator {
