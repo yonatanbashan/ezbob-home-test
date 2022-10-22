@@ -1,8 +1,10 @@
+@import "../styles/constants";
+
 .searchbox-input {
   outline: none;
   border: none;
   height: 32px;
-  font-size: 18px;
+  font-size: $autocomplete-text-size;
 }
 
 .searchbox-container {
@@ -12,7 +14,7 @@
   padding: 0.5rem 1rem;
   font-family: Arial, Helvetica, sans-serif;
   border-radius: 24px;
-  border: 1px solid #dfe1e5;
+  border: 1px solid $border-color;
   outline: none;
   width: 45%;
 }
