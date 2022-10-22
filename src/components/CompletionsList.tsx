@@ -25,7 +25,7 @@ function CompletionsList(props: CompletionsListProps) {
     if (!items || items.length === 0) {
       return null;
     }
-    return items
+    const result = items
       .map((item) => {
         return {
           text: item,
@@ -38,6 +38,8 @@ function CompletionsList(props: CompletionsListProps) {
         }
         return 1;
       });
+    result.splice(10);
+    return result;
   }, [searchHistory, items]);
 
   if (!items || items.length === 0) {

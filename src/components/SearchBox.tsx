@@ -62,15 +62,18 @@ function SearchBox(props: SearchBoxProps) {
     setHideCompletions(false);
   };
 
+  // Reverse is in order to display latest entry first
+  const completionsAsArray = Array.from(completions).reverse();
+
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "ArrowUp") {
       if (completions && selectedIndex === -1) {
-        setSelectedIndex(Array.from(completions).length - 1);
+        setSelectedIndex(completionsAsArray.length - 1);
       } else {
         setSelectedIndex(selectedIndex - 1);
       }
     } else if (e.key === "ArrowDown") {
-      if (completions && selectedIndex === Array.from(completions).length - 1) {
+      if (completions && selectedIndex === completionsAsArray.length - 1) {
         setSelectedIndex(-1);
       } else {
         setSelectedIndex(selectedIndex + 1);
@@ -80,44 +83,46 @@ function SearchBox(props: SearchBoxProps) {
 
   const boxClassNames = classNames("searchbox-container", {
     "searchbox-container-results-displayed": Boolean(
-      !hideCompletions && Array.from(completions).length > 0
+      !hideCompletions && completionsAsArray.length > 0
     ),
   });
 
   return (
-    <div onKeyDown={handleKeyDown} className={boxClassNames}>
-      <>
-        <input
-          onBlur={() => onSearchBoxBlurred()}
-          ref={inputRef}
-          onFocus={onInputFocused}
-          autoFocus={true}
-          type="text"
-          className="searchbox-input"
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              onSearch((e.target as HTMLInputElement).value);
-            }
-          }}
-          onInput={(e) => {
-            onType((e.target as HTMLInputElement).value);
-          }}
-        />
-        {!hideCompletions && (
-          <CompletionsList
-            items={Array.from(completions)}
-            searchHistory={searchHistory}
-            onItemClicked={(term) => {
-              if (inputRef?.current) {
-                inputRef.current.value = term;
+    <div className="searchbox-locator">
+      <div onKeyDown={handleKeyDown} className={boxClassNames}>
+        <>
+          <input
+            onBlur={() => onSearchBoxBlurred()}
+            ref={inputRef}
+            onFocus={onInputFocused}
+            autoFocus={true}
+            type="text"
+            className="searchbox-input"
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                onSearch((e.target as HTMLInputElement).value);
               }
-              onSearch(term);
             }}
-            onItemHovered={(i: number) => setSelectedIndex(i)}
-            selectedIndex={selectedIndex}
+            onInput={(e) => {
+              onType((e.target as HTMLInputElement).value);
+            }}
           />
-        )}
-      </>
+          {!hideCompletions && (
+            <CompletionsList
+              items={completionsAsArray}
+              searchHistory={searchHistory}
+              onItemClicked={(term) => {
+                if (inputRef?.current) {
+                  inputRef.current.value = term;
+                }
+                onSearch(term);
+              }}
+              onItemHovered={(i: number) => setSelectedIndex(i)}
+              selectedIndex={selectedIndex}
+            />
+          )}
+        </>
+      </div>
     </div>
   );
 }

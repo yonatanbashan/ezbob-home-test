@@ -7,6 +7,14 @@
   font-size: $autocomplete-text-size;
 }
 
+.searchbox-locator {
+  position: relative;
+  width: 100%;
+  display: flex;
+  height: 32px;
+  justify-content: center;
+}
+
 .searchbox-container {
   margin-top: 3rem;
   display: flex;
@@ -17,6 +25,9 @@
   border: 1px solid $border-color;
   outline: none;
   width: 45%;
+  position: absolute;
+  top: 0;
+  background-color: white;
 }
 
 .searchbox-container:focus,
