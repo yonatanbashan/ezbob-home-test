@@ -1,0 +1,25 @@
+.searchbox-input {
+  outline: none;
+  border: none;
+  height: 32px;
+  font-size: 18px;
+}
+
+.searchbox-container {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 24px;
+  border: 1px solid #dfe1e5;
+  outline: none;
+  width: 45%;
+}
+
+.searchbox-container:focus,
+.searchbox-container-results-displayed,
+.searchbox-container:hover {
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+  border-color: transparent;
+}
