@@ -1,6 +1,6 @@
 import React from "react";
 import { SearchResult } from "../types";
-import "./CompletionsList.css";
+import "./CompletionsList.scss";
 import SearchIcon from "./path/SearchIcon";
 
 type CompletionsListProps = {
@@ -17,7 +17,7 @@ function CompletionsList(props: CompletionsListProps) {
   }
   return (
     <>
-      <div className="completionslist-separator"></div>
+      <div className="separator"></div>
       {items &&
         items.map((item, i) => {
           return (

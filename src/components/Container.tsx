@@ -1,5 +1,5 @@
 import React from "react";
-import "./Container.css";
+import "./Container.scss";
 
 function Container(props: { children: React.ReactNode }) {
   const { children } = props;

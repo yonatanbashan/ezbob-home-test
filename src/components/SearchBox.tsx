@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import SearchServiceClient from "../services/SearchServiceClient";
 import { SearchResult } from "../types";
 import CompletionsList from "./CompletionsList";
-import "./SearchBox.css";
+import "./SearchBox.scss";
 
 function SearchBox() {
   const searchService = useRef(SearchServiceClient());
