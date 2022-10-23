@@ -11,12 +11,14 @@ function ResultsList(props: ResultsListProps) {
   return (
     <div className="resultslist-container">
       {results.map((item, i) => {
+        const origin = new URL(item.url).origin;
         return (
-          <div className="resultslist-item" key={`${item}_${i}`}>
-            <a className="resultslist-title" href={item.url}>
-              {item.title}
+          <div className="item" key={`${item}_${i}`}>
+            <a className="header" href={item.url}>
+              <div className="origin">{origin}</div>
+              <h3 className="title">{item.title}</h3>
             </a>
-            <div className="resultslist-description">{item.description}</div>
+            <div className="description">{item.description}</div>
           </div>
         );
       })}

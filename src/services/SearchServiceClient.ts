@@ -35,7 +35,7 @@ export default function SearchServiceClient(): SearchService {
         .filter((result) =>
           result.title.toLowerCase().includes(term.toLowerCase())
         )
-        .map((item) => ({ ...item, title: item.title.toLowerCase() }));
+        .map((item) => ({ ...item, title: item.title }));
     },
   };
 }

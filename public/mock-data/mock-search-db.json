@@ -31,9 +31,19 @@
       "description": "Create an account or log into Facebook. Connect with friends, family and other people you know. Share photos and videos, send messages and get updates."
     },
     {
+      "title": "Kids REACT - YouTube",
+      "url": "https://www.youtube.com/channel/UCxqV2u6alqV9QDzQsOwbiog",
+      "description": "Welcome to Kids React! From the people who bring you the award-winning REACT series and People Vs Food, this brand new channel will serve as the home for ..."
+    },
+    {
       "title": "MyFlorida.com - The Official Portal of the State of Florida",
       "url": "http://www.myflorida.com/",
       "description": "An online telephone and email directory for State Government agencies and employees in Florida. Please notify us of any technical issues with this site."
+    },
+    {
+      "title": "React - A JavaScript library for building user interfaces",
+      "url": "https://reactjs.org/",
+      "description": "React · Declarative. React makes it painless to create interactive UIs. · Component-Based. Build encapsulated components that manage their own state, then compose ..."
     },
     {
       "title": "University of Washington",

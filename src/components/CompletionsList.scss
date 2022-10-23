@@ -1,28 +1,42 @@
 @import "../styles/constants";
 
 .completionslist-item {
-  font-size: $autocomplete-text-size;
-  width: 100%;
-  height: $item-size;
-  text-align: left;
-  padding: 0.2rem 0;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+
+  width: 100%;
+  height: $item-size;
+
+  padding: $searchbox-padding;
+  box-sizing: border-box;
+
+  font-size: $autocomplete-text-size;
+  text-align: left;
   user-select: none;
-}
 
-.completionslist-item-selected {
-  background-color: rgba(128, 134, 141, 0.16);
-}
+  &.selected {
+    background-color: rgba(128, 134, 141, 0.16);
+  }
 
-.completionslist-item-searched {
-  color: #9669be;
+  &.searched {
+    color: #9669be;
+  }
 }
 
 .completionslist-separator {
-  margin: 5px 0;
-  border-top: 1px solid $border-color;
+  position: relative;
   width: 100%;
+
+  padding: $searchbox-padding;
+  padding-top: 0;
+
+  box-sizing: border-box;
+
+  div {
+    margin: 5px 0;
+    border-top: 1px solid $border-color;
+    width: 100%;
+  }
 }

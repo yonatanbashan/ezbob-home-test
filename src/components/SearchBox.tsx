@@ -38,18 +38,18 @@ function SearchBox(props: SearchBoxProps) {
   };
 
   const onType = async (value: string) => {
-    const matchingFromHistory = Object.keys(searchHistory).filter(
+    const matchesFromHistory = Object.keys(searchHistory).filter(
       (key) => searchHistory[key] === true && key.startsWith(value)
     );
     if (value === "") {
-      setCompletions(new Set(matchingFromHistory));
+      setCompletions(new Set(matchesFromHistory));
       return;
     }
     const autoCompleteResults = (
       await searchService.current.complete(value)
     ).map((searchResult) => searchResult.title);
 
-    setCompletions(new Set([...matchingFromHistory, ...autoCompleteResults]));
+    setCompletions(new Set([...matchesFromHistory, ...autoCompleteResults]));
   };
 
   const inputRef = useRef<HTMLInputElement>(null);
@@ -66,18 +66,38 @@ function SearchBox(props: SearchBoxProps) {
   const completionsAsArray = Array.from(completions).reverse();
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "ArrowUp") {
-      if (completions && selectedIndex === -1) {
-        setSelectedIndex(completionsAsArray.length - 1);
-      } else {
-        setSelectedIndex(selectedIndex - 1);
-      }
-    } else if (e.key === "ArrowDown") {
-      if (completions && selectedIndex === completionsAsArray.length - 1) {
-        setSelectedIndex(-1);
-      } else {
-        setSelectedIndex(selectedIndex + 1);
-      }
+    // Determine a new index of selected completion item
+    let newSelectedIndex = selectedIndex;
+    switch (e.key) {
+      case "ArrowUp":
+        if (selectedIndex === -1) {
+          newSelectedIndex = completionsAsArray.length - 1;
+        } else {
+          newSelectedIndex = selectedIndex - 1;
+        }
+        break;
+      case "ArrowDown":
+        if (selectedIndex === completionsAsArray.length - 1) {
+          newSelectedIndex = -1;
+        } else {
+          newSelectedIndex = selectedIndex + 1;
+        }
+        break;
+      default:
+        break;
+    }
+    setSelectedIndex(newSelectedIndex);
+
+    // Update input content when using keyboard to navigate completions
+    if (
+      newSelectedIndex !== -1 &&
+      newSelectedIndex !== selectedIndex &&
+      inputRef?.current !== null &&
+      completionsAsArray[newSelectedIndex] !== inputRef?.current?.value
+    ) {
+      console.log(newSelectedIndex);
+      inputRef.current.value = completionsAsArray[newSelectedIndex];
+      inputRef.current.focus();
     }
   };
 
@@ -89,7 +109,11 @@ function SearchBox(props: SearchBoxProps) {
 
   return (
     <div className="searchbox-locator">
-      <div onKeyDown={handleKeyDown} className={boxClassNames}>
+      <div
+        onMouseLeave={() => setSelectedIndex(-1)}
+        onKeyDown={handleKeyDown}
+        className={boxClassNames}
+      >
         <>
           <input
             onBlur={() => onSearchBoxBlurred()}

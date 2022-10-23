@@ -48,12 +48,14 @@ function CompletionsList(props: CompletionsListProps) {
 
   return (
     <>
-      <div className="separator"></div>
+      <div className="completionslist-separator">
+        <div />
+      </div>
       {sortedItems &&
         sortedItems.map((item, i) => {
           const itemClassNames = classNames("completionslist-item", {
-            "completionslist-item-selected": selectedIndex === i,
-            "completionslist-item-searched": item.searched,
+            selected: selectedIndex === i,
+            searched: item.searched,
           });
           return (
             <div
@@ -65,8 +67,6 @@ function CompletionsList(props: CompletionsListProps) {
               }}
               onMouseDown={(e) => {
                 e.preventDefault();
-                e.stopPropagation();
-                e.nativeEvent.stopImmediatePropagation();
               }}
             >
               <SearchIcon />
