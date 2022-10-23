@@ -1,5 +1,4 @@
 .resultslist-container {
-  margin-top: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -8,14 +7,21 @@
 
   .item {
     text-align: left;
-    margin-top: 2rem;
+
+    &:not(:first-of-type) {
+      margin-top: 2rem;
+    }
+
+    &:first-of-type {
+      margin-top: 1rem;
+    }
 
     .header {
       text-decoration: none;
 
       .origin {
         font-size: 1rem;
-        color: black;
+        color: rgba(0, 0, 0, 0.6);
       }
 
       .title {

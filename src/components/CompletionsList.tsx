@@ -7,6 +7,7 @@ import { SearchHistory } from "../types";
 type CompletionsListProps = {
   items: string[] | null;
   onItemClicked: (item: string) => void;
+  onItemDeleted: (item: string) => void;
   onItemHovered: (index: number) => void;
   selectedIndex: number;
   searchHistory: SearchHistory;
@@ -18,8 +19,14 @@ type CompletionItem = {
 };
 
 function CompletionsList(props: CompletionsListProps) {
-  const { items, selectedIndex, onItemHovered, onItemClicked, searchHistory } =
-    props;
+  const {
+    items,
+    selectedIndex,
+    onItemHovered,
+    onItemClicked,
+    onItemDeleted,
+    searchHistory,
+  } = props;
 
   const sortedItems: CompletionItem[] | null = useMemo(() => {
     if (!items || items.length === 0) {
@@ -59,18 +66,33 @@ function CompletionsList(props: CompletionsListProps) {
           });
           return (
             <div
-              className={itemClassNames}
-              key={`${item.text}_${i}`}
-              onMouseOver={() => onItemHovered(i)}
-              onClick={() => {
-                onItemClicked(item.text);
-              }}
               onMouseDown={(e) => {
                 e.preventDefault();
               }}
+              className={itemClassNames}
+              key={`${item.text}_${i}`}
             >
-              <SearchIcon />
-              {item.text}
+              <div
+                className="main"
+                onMouseOver={() => onItemHovered(i)}
+                onClick={() => {
+                  onItemClicked(item.text);
+                }}
+              >
+                <SearchIcon />
+                {item.text}
+              </div>
+              {item.searched && selectedIndex === i && (
+                <div
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onItemDeleted(item.text);
+                  }}
+                  className="delete-button"
+                >
+                  Delete
+                </div>
+              )}
             </div>
           );
         })}

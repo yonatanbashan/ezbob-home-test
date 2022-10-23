@@ -1,8 +1,7 @@
 const SearchIcon = () => (
   <svg
     width="20px"
-    height="20px"
-    style={{ padding: "0px 5px", color: "#9aa0a6" }}
+    style={{ padding: "0px 5px", color: "#9aa0a6", minWidth: "20px" }}
     focusable="false"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"

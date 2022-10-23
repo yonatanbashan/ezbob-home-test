@@ -26,9 +26,39 @@
       "description": "Breaking Bad: Created by Vince Gilligan. With Bryan Cranston, Anna Gunn, Aaron Paul, Betsy Brandt."
     },
     {
+      "title": "eBay: Electronics, Cars, Fashion, Collectibles & More",
+      "url": "https://www.ebay.com/",
+      "description": "Buy & sell electronics, cars, clothes, collectibles & more on eBay, the world's online marketplace. Top brands, low prices & free shipping on many items."
+    },
+    {
       "title": "Facebook - log in or sign up",
       "url": "https://www.facebook.com/",
       "description": "Create an account or log into Facebook. Connect with friends, family and other people you know. Share photos and videos, send messages and get updates."
+    },
+    {
+      "title": "Getting started with React - Learn web development | MDN",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_getting_started",
+      "description": "React uses an HTML-in-JavaScript syntax called JSX (JavaScript and XML). Familiarity with both HTML and JavaScript will help you to learn JSX."
+    },
+    {
+      "title": "Google Drive",
+      "url": "https://accounts.google.com/AccountChooser?service=writely",
+      "description": "Create and share your work online and access your documents from anywhere. Manage documents, spreadsheets, presentations, surveys, and more all in one easy ..."
+    },
+    {
+      "title": "How to install Python in Windows",
+      "url": "https://www.tutorialspoint.com/how-to-install-python-in-windows",
+      "description": "Step 1 - Select Version of Python to Install · Step 2 - Download Python Executable Installer · Step 3 - Run Executable Installer"
+    },
+    {
+      "title": "How to Lace & Tie Running Shoes",
+      "url": "https://www.rei.com/learn/expert-advice/lacing-running-shoes.html",
+      "description": "With your foot out of the shoe, tie your knot the usual way. Now grasp your tied shoe by the top eyelets and pull sideways."
+    },
+    {
+      "title": "Gmail by Google",
+      "url": "https://gmail.google.com/inbox/",
+      "description": "Inbox by Gmail is going away at the end of March 2019. Use the new Gmail to help you get more done and continue your conversations without interruption."
     },
     {
       "title": "Kids REACT - YouTube",
@@ -46,6 +76,16 @@
       "description": "React · Declarative. React makes it painless to create interactive UIs. · Component-Based. Build encapsulated components that manage their own state, then compose ..."
     },
     {
+      "title": "Sky News",
+      "url": "https://news.sky.com/",
+      "description": "Sky News delivers breaking news, headlines and top stories from business, politics, entertainment and more in the UK and worldwide."
+    },
+    {
+      "title": "Skyscanner",
+      "url": "https://www.skyscanner.com/",
+      "description": "Search and compare cheap flights from all major airlines and online travel agents, and find the best plane tickets to your favourite destinations."
+    },
+    {
       "title": "University of Washington",
       "url": "https://www.washington.edu",
       "description": "UW among best universities in the world ... The World University Rankings evaluates 1,799 research-intensive universities from 104 countries."
@@ -56,9 +96,19 @@
       "description": "Washington, officially the State of Washington, is a state in the Pacific Northwest region of the Western United States."
     },
     {
-      "title": "wikipedia",
+      "title": "Wikipedia",
       "url": "https://www.wikipedia.org",
       "description": "Wikipedia is a free online encyclopedia, created and edited by volunteers around the world and hosted by the Wikimedia Foundation."
+    },
+    {
+      "title": "YouTube",
+      "url": "https://www.youtube.com/",
+      "description": "Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube."
+    },
+    {
+      "title": "YouTube Kids",
+      "url": "https://www.youtubekids.com/",
+      "description": "YouTube Kids provides a more contained environment for kids to explore YouTube and makes it easier for parents and caregivers to guide their journey."
     }
   ]
 }

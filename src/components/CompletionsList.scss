@@ -5,9 +5,9 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  position: relative;
 
   width: 100%;
-  height: $item-size;
 
   padding: $searchbox-padding;
   box-sizing: border-box;
@@ -15,6 +15,26 @@
   font-size: $autocomplete-text-size;
   text-align: left;
   user-select: none;
+
+  .main {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+  }
+
+  .delete-button {
+    position: absolute;
+    right: 25px;
+
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.56);
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 
   &.selected {
     background-color: rgba(128, 134, 141, 0.16);
